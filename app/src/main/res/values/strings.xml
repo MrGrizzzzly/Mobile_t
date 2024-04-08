@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="start">Начать игру</string>
+    <string name="settings">Настройки</string>
+    <string name="leaders">Список лидеров</string>
+    <string name="store">Магазин</string>
+    <string name="logo_game">Logo game</string>
+    <string name="store_content">Store content</string>
+    <string name="country_icon">Country icon</string>
+    <string name="next">Next</string>
+    <string name="esc">Назад</string>
+    <string name="id">Id</string>
+    <string name="user_name">Никнейм</string>
+    <string name="score">Счет</string>
+    <string name="country">Страна</string>
+    <string name="ListLeaders">Список лидеров</string>
+
+</resources>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_color"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40sp"
+        android:contentDescription="@string/logo_game"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="120sp"
+        android:layout_marginTop="180sp"
+        android:background="@drawable/button"
+        android:onClick="start_game"
+        android:text="@string/start"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:backgroundTint="#00FFFFFF"
+        app:backgroundTintMode="src_over"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="#00FFFFFF" />
+
+
+    <Button
+        android:id="@+id/settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start_game"
+        android:layout_marginHorizontal="120sp"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/button"
+        android:onClick="settings"
+        android:text="@string/settings"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:backgroundTint="#00FFFFFF"
+        android:textColor="@color/white"
+        app:backgroundTintMode="src_over"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/leaders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/settings"
+        android:layout_marginHorizontal="120sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:textSize="18sp"
+        android:onClick="open_table_leaders"
+        android:text="@string/leaders"
+        android:textAllCaps="false"
+        app:backgroundTint="#00FFFFFF"
+        android:textColor="@color/white"
+        app:backgroundTintMode="src_over"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/leaders"
+        android:layout_marginHorizontal="120sp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:onClick="open_store"
+        android:textColor="@color/white"
+        android:text="@string/store"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:backgroundTint="#00FFFFFF"
+        app:backgroundTintMode="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>
