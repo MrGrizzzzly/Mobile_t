@@ -1,8 +1,6 @@
 package com.example.myapplication.models;
 
 import android.os.Handler;
-import android.util.Log;
-
 import com.example.myapplication.presenter.GameModel;
 import com.example.myapplication.presenter.GameTurn;
 import com.example.myapplication.presenter.Point;
@@ -12,11 +10,11 @@ import com.example.myapplication.presenter.PresenterObserver;
 import com.example.myapplication.values.GameValues;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 class TetrisGameModel implements GameModel {
-    private static final String TAG = "TetrisGameModel";
 
     private static final int GAME_SIZE = 24;
     private static final int PLAYING_AREA_WIDTH = 10;
@@ -234,7 +232,7 @@ class TetrisGameModel implements GameModel {
     private boolean isNextMerged() {
         for (Point fallingPoint : mFallingPoints) {
             if (fallingPoint.y + 1 >= 0 && (fallingPoint.y == PLAYING_AREA_HEIGHT - 1 ||
-                    getPlayingPoint(fallingPoint.x, fallingPoint.y + 1).isStablePoint())) {
+                Objects.requireNonNull(getPlayingPoint(fallingPoint.x, fallingPoint.y + 1)).isStablePoint())) {
                 return true;
             }
         }
@@ -297,7 +295,7 @@ class TetrisGameModel implements GameModel {
                 canTurn = true;
                 for (Point fallingPoint : mFallingPoints) {
                     if (fallingPoint.y >= 0 && (fallingPoint.x == 0 ||
-                            getPlayingPoint(fallingPoint.x - 1, fallingPoint.y).isStablePoint())) {
+                        Objects.requireNonNull(getPlayingPoint(fallingPoint.x - 1, fallingPoint.y)).isStablePoint())) {
                         canTurn = false;
                         break;
                     }
@@ -319,7 +317,7 @@ class TetrisGameModel implements GameModel {
                 canTurn = true;
                 for (Point fallingPoint : mFallingPoints) {
                     if (fallingPoint.y >= 0 && (fallingPoint.x == PLAYING_AREA_WIDTH - 1 ||
-                            getPlayingPoint(fallingPoint.x + 1, fallingPoint.y).isStablePoint())) {
+                        Objects.requireNonNull(getPlayingPoint(fallingPoint.x + 1, fallingPoint.y)).isStablePoint())) {
                         canTurn = false;
                         break;
                     }
@@ -442,7 +440,7 @@ class TetrisGameModel implements GameModel {
     }
 
     public boolean rotatePointsLeft(int x, int y, int size) {
-        if (x - size + 2 < 0 || x - size + 2 >= PLAYING_AREA_WIDTH)
+        if (x - size + 2 < 0 || x - size + 1 >= PLAYING_AREA_WIDTH)
             return false;
         boolean canRotate = true;
         Point[][] points = new Point[size][size];
@@ -450,18 +448,18 @@ class TetrisGameModel implements GameModel {
             for (int j = 0; j < size; j++) {
                 Point point = getPlayingPoint(j - x, i - y);
                 if (point == null) {
-                    final int tmX = x + j;
-                    final int tmY = y + i;
+                    final int tmX = j + x;
+                    final int tmY = i + y;
                     point = mFallingPoints.stream()
                             .filter(p -> p.x == tmX && p.y == tmY)
                             .findFirst()
                             .orElse(new Point(j - x, i - y));
                 }
-                if (point.isStablePoint() && getPlayingPoint(x - size + 2 + i, j - y).isFallingPoint) {
+                if (point.isStablePoint() && getPlayingPoint(x - size + 2 + i, y - j + 1).isFallingPoint) {
                     canRotate = false;
                     break;
                 }
-                points[i][j] = new Point(x - size + 2 + i, j - y, point.type, point.isFallingPoint);
+                points[i][j] = new Point(x - size + 2 + i, y - j + 1, point.type, point.isFallingPoint);
             }
             if (!canRotate) {
                 break;
