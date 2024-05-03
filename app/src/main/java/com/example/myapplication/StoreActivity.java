@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 
+import com.example.myapplication.adapters.StoreAdapter;
+
 public class StoreActivity extends AppCompatActivity {
 
     GridView lvProgram;

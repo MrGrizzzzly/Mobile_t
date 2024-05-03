@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.myapplication.db.DataBase;
+
 public class AddUserActivity2 extends AppCompatActivity {
 
 
@@ -32,6 +34,6 @@ public class AddUserActivity2 extends AppCompatActivity {
     public void dataBaseSQLite(View view) {
         DataBase db = new DataBase(this);
         db.addUser(user_input.getText().toString().trim(), 0, choice_country.getSelectedItem().toString().trim());
-        startActivity(new Intent(this, ListofleadersActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 }

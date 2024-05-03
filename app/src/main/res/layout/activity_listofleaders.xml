@@ -40,7 +40,7 @@
 
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TableLayout
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/textView"
@@ -48,9 +48,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" >
-
-
-        <TableRow>
         <TextView
             android:id="@+id/id"
             android:layout_height="match_parent"
@@ -88,9 +85,8 @@
             android:textColor="@color/white"
             android:textSize="18sp"
             android:background="@drawable/button"/>
-        </TableRow>
+    </TableRow>
 
-    </TableLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/leaders"
@@ -99,26 +95,5 @@
         android:layout_marginTop="139dp"
         android:background="@drawable/button">
     </androidx.recyclerview.widget.RecyclerView>
-
-
-    <Button
-        android:id="@+id/add"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="120sp"
-        android:layout_marginStart="275dp"
-        android:layout_marginTop="550dp"
-        android:background="@drawable/button"
-        android:onClick="add_user"
-        android:insetLeft="0dp"
-        android:text="add"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:backgroundTint="#00FFFFFF"
-        app:backgroundTintMode="add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </RelativeLayout>

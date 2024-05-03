@@ -3,16 +3,19 @@ package com.example.myapplication;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.myapplication.db.DataBase;
+import com.example.myapplication.values.Countries;
+import com.example.myapplication.values.ListCountries;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Update_user extends AppCompatActivity {
@@ -22,6 +25,7 @@ public class Update_user extends AppCompatActivity {
 
     String id, name;
     int country;
+    ArrayList<Countries> countries;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class Update_user extends AppCompatActivity {
 
         user_input = findViewById(R.id.Name_update_user);
         choice_country = findViewById(R.id.update_country);
+        countries = ListCountries.Get();
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.countries));
@@ -68,14 +73,11 @@ public class Update_user extends AppCompatActivity {
             country = Integer.parseInt(getIntent().getStringExtra("country"));
 
             user_input.setText(name);
-            if (Objects.equals(country, R.drawable.germany))
-                choice_country.setSelection(adapter.getPosition("Germany"));
-            else if (Objects.equals(country, R.drawable.france))
-                choice_country.setSelection(adapter.getPosition("France"));
-            else if (Objects.equals(country, R.drawable.italy))
-                choice_country.setSelection(adapter.getPosition("Italy"));
-            else if (Objects.equals(country, R.drawable.russia))
-                choice_country.setSelection(adapter.getPosition("Russia"));
+            for (Countries tmp : countries)
+                if (Objects.equals(country, tmp.getFlag())) {
+                    choice_country.setSelection(adapter.getPosition(tmp.getCountry()));
+                    break;
+                }
         } else
             Toast.makeText(this, "Fail", Toast.LENGTH_SHORT).show();
 

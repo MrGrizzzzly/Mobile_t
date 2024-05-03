@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_color"
     tools:context=".AddUserActivity2">
 
     <EditText
@@ -11,35 +12,41 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
         android:layout_marginBottom="292dp"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Имя"
+        android:autofillHints=""
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/choice_country"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Spinner
+        android:id="@+id/choice_country"
+        android:layout_width="212dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="125dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Name_new_user" />
+
+
     <Button
         android:id="@+id/add_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="140dp"
+        android:layout_marginStart="150dp"
+        android:background="@drawable/button"
         android:onClick="dataBaseSQLite"
-        android:text="Button"
+        android:text="Сохранить"
+        android:textAllCaps="false"
         android:textColor="@color/white"
+        app:backgroundTint="#00FFFFFF"
+        app:backgroundTintMode="src_over"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choice_country" />
 
-    <Spinner
-        android:id="@+id/choice_country"
-        android:layout_width="212dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Name_new_user" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

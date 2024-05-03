@@ -8,17 +8,6 @@
     tools:context=".LastActivity">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="75dp"
-        android:contentDescription="@string/logo_game"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/zaglishka" />
-
-    <ImageView
         android:id="@+id/imageView3"
         android:layout_width="176dp"
         android:layout_height="112dp"
@@ -29,4 +18,63 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/zaglishka2" />
+
+    <TextView
+        android:id="@+id/country_view"
+        android:layout_width="81dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="country"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/description_view"
+        android:layout_width="94dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="483dp"
+        android:gravity="center"
+        android:text="description"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/feels_like"
+        android:layout_width="89dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="37dp"
+        android:gravity="center"
+        android:text="16"
+
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:layout_width="409dp"
+        android:layout_height="473dp"
+        android:id="@+id/test_maps"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3">
+
+    </androidx.fragment.app.FragmentContainerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
